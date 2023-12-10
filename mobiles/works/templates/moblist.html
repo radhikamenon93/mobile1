@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+    
+    
+    <table class="table" >
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">brand</th>
+            <th scope="col">price</th>
+            <th scope="col">year</th>
+            <th scope="col">color</th>
+            <th scope="col">delete entry</th>
+            <th scope="col">update entry</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for book in qs%}  
+           <tr>
+            <td>{{book.id}}</td>
+            <td>{{book.brand}}</td>
+            <td>{{book.price}}</td>
+            <td>{{book.year}}</td>
+            <td>{{book.color}}</td>
+            <td>
+                <a class="btn btn-primary" href="{% url 'book-b' book.id %}">delete</a>
+            </td>
+            <td>
+                <a class="btn btn-warning" href="{% url 'book-c' book.id %}">update</a>
+            </td>
+           </tr>
+          {%endfor%}
+          
+        </tbody>
+      </table>
+   
+{% endblock %}  
